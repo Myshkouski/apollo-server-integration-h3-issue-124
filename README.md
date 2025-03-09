@@ -1,75 +1,7 @@
-# Nuxt 3 Minimal Starter
+# Nuxt 3 with `@apollo/server` and `@as-integrations/h3`
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This project was created to resolve issues with dependency misconfiguration of `@as-integrations/h3`. See [issue](https://github.com/apollo-server-integrations/apollo-server-integration-h3/issues/124) for details.
 
-## Setup
+`npm run build:cloudflare` will fail due to `graphql-ws` imported as runtime dependency, but configured as optional peer dependency in (package.json)[node_modules/@as-integrations/h3/package.json].
 
-Make sure to install the dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+> `@as-integrations/h3@1.2.1` not published yet, so `@as-integrations/h3@1.2.1` was [patched](patches/@as-integrations+h3+1.2.1.patch) to use dynamic import of `graphql-ws`.
