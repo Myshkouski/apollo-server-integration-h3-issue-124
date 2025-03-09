@@ -1,5 +1,5 @@
 <template>
   <div>
-    <NuxtWelcome />
+    <a href="/graphql">Go to /graphql</a>
   </div>
 </template>
