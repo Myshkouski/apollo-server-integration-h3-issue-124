@@ -1,0 +1,16 @@
+diff --git a/node_modules/@as-integrations/h3/dist/index.mjs b/node_modules/@as-integrations/h3/dist/index.mjs
+index 289d731..0129097 100644
+--- a/node_modules/@as-integrations/h3/dist/index.mjs
++++ b/node_modules/@as-integrations/h3/dist/index.mjs
+@@ -1,8 +1,9 @@
+ import { HeaderMap } from '@apollo/server';
+ import { defineWebSocket, defineWebSocketHandler, eventHandler, isMethod, setHeaders, getHeaders, readBody } from 'h3';
+-import { makeServer, GRAPHQL_TRANSPORT_WS_PROTOCOL } from 'graphql-ws';
+ 
+-function defineGraphqlWebSocket(options) {
++async function defineGraphqlWebSocket(options) {
++  const { makeServer, GRAPHQL_TRANSPORT_WS_PROTOCOL } = await import('graphql-ws');
++
+   const server = makeServer(options);
+   const peers = /* @__PURE__ */ new WeakMap();
+   return defineWebSocket({
